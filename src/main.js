@@ -4,9 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import '../static/reset.css' // 重置默认样式
-import '../static/border.css' // 移动端1px像素处理
+import './assets/styles/reset.css' // 重置默认样式
+import './assets/styles/border.css' // 移动端1px像素处理
 import fastClick from 'fastclick' // 解决移动端click事件延迟300ms
+import './assets/styles/iconfont.css'
 
 Vue.config.productionTip = false
 
