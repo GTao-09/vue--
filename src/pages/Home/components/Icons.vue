@@ -61,6 +61,7 @@ export default {
     padding-bottom 50%
     // background-color green
   .HomeIcons
+    margin-top .1rem
     .icons
       position relative
       float left
