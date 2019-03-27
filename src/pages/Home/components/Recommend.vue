@@ -2,8 +2,8 @@
   <div class="HomeRecommend">
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="list in Recommendlists" :key="list.id">
-        <img class="item-img" :src="list.itemImgSrc" />
+      <li class="item border-bottom" v-for="list in recommendList" :key="list.id">
+        <img class="item-img" :src="list.imgUrl" />
         <div class="item-info">
           <p class="item-info-title">{{list.title}}</p>
           <p class="item-info-desc">{{list.desc}}</p>
@@ -17,40 +17,43 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendList: Array
+  },
   data () {
     return {
-      Recommendlists: [
-        {
-          id: '001',
-          itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '全球最大的迪士尼城堡'
-        },
-        {
-          id: '002',
-          itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1603/17/170481fb9caf500790.water.jpg_200x200_a32b9a92.jpg',
-          title: '上海野生动物园',
-          desc: '会跳芭蕾的小海狮们~'
-        },
-        {
-          id: '003',
-          itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_200x200_9a7794fc.jpg',
-          title: '上海欢乐谷',
-          desc: '敢上1200米长的木质过山车吗?'
-        },
-        {
-          id: '004',
-          itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1603/9b/9bf694a468dd774490.water.jpg_200x200_c7f8a6ad.jpg',
-          title: '上海动物园',
-          desc: '巨型象龟了解一下~'
-        },
-        {
-          id: '005',
-          itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1412/9f/fbff2a5302c0ce906ef9b64159730f89.water.jpg_200x200_87806940.jpg',
-          title: '上海海洋水族馆',
-          desc: '亲眼见证鲨鱼的恐怖'
-        }
-      ]
+      // recommendList: [
+      //   {
+      //     id: '001',
+      //     imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
+      //     title: '上海迪士尼乐园',
+      //     desc: '全球最大的迪士尼城堡'
+      //   },
+      //   {
+      //     id: '002',
+      //     itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1603/17/170481fb9caf500790.water.jpg_200x200_a32b9a92.jpg',
+      //     title: '上海野生动物园',
+      //     desc: '会跳芭蕾的小海狮们~'
+      //   },
+      //   {
+      //     id: '003',
+      //     itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_200x200_9a7794fc.jpg',
+      //     title: '上海欢乐谷',
+      //     desc: '敢上1200米长的木质过山车吗?'
+      //   },
+      //   {
+      //     id: '004',
+      //     itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1603/9b/9bf694a468dd774490.water.jpg_200x200_c7f8a6ad.jpg',
+      //     title: '上海动物园',
+      //     desc: '巨型象龟了解一下~'
+      //   },
+      //   {
+      //     id: '005',
+      //     itemImgSrc: 'http://img1.qunarzz.com/sight/p0/1412/9f/fbff2a5302c0ce906ef9b64159730f89.water.jpg_200x200_87806940.jpg',
+      //     title: '上海海洋水族馆',
+      //     desc: '亲眼见证鲨鱼的恐怖'
+      //   }
+      // ]
     }
   }
 }

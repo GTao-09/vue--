@@ -4,9 +4,9 @@
       <swiper-slide v-for="(page, index) in pages" :key="index">
         <div class="icons" v-for="item in page" :key="item.id">
           <div class="Icons-img">
-            <img class="Icons-imgContent" :src="item.IconsImgUrl" />
+            <img class="Icons-imgContent" :src="item.imgUrl" />
           </div>
-          <p class="Icons-text">{{item.description}}</p>
+          <p class="Icons-text">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -16,30 +16,33 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
       swiperOption: {
         autoplay: false
-      },
-      lists: [
-        {id: '001', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', description: '景点门票'},
-        {id: '002', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png', description: '一日游'},
-        {id: '003', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png', description: '上海必游'},
-        {id: '004', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png', description: '动植物园'},
-        {id: '005', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png', description: '城市观光'},
-        {id: '006', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png', description: '踏青赏花'},
-        {id: '007', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png', description: '东方明珠'},
-        {id: '008', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', description: '野生动物园'},
-        {id: '009', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', description: '景点门票'},
-        {id: '010', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', description: '景点门票'},
-        {id: '011', IconsImgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', description: '景点门票'}
-      ]
+      }
+      // lists: [
+      //   {id: '001', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '景点门票'},
+      //   {id: '002', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png', desc: '一日游'},
+      //   {id: '003', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png', desc: '上海必游'},
+      //   {id: '004', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png', desc: '动植物园'},
+      //   {id: '005', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png', desc: '城市观光'},
+      //   {id: '006', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png', desc: '踏青赏花'},
+      //   {id: '007', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png', desc: '东方明珠'},
+      //   {id: '008', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '野生动物园'},
+      //   {id: '009', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '景点门票'},
+      //   {id: '010', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '景点门票'},
+      //   {id: '011', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '景点门票'}
+      // ]
     }
   },
   computed: {
     pages () {
       let pages = []
-      this.lists.forEach((item, index) => {
+      this.iconList.forEach((item, index) => {
         let page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -61,7 +64,7 @@ export default {
     padding-bottom 50%
     // background-color green
   .HomeIcons
-    margin-top .1rem
+    margin-top .2rem
     .icons
       position relative
       float left
