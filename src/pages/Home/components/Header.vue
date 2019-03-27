@@ -7,10 +7,12 @@
       <span class="iconfont findicon">&#xe632;</span>
       <span>输入城市/景点/游玩主题</span>
     </div>
-    <div class="header-right">
-      <span>{{city}}</span>
-      <span class="iconfont arrowicon">&#xe64a;</span>
-    </div>
+    <router-link :to="{name: 'CityLink'}">
+      <div class="header-right">
+        <span>{{city}}</span>
+        <span class="iconfont arrowicon">&#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -30,10 +32,10 @@ export default {
   @import '../../../assets/styles/varibles.styl'
   .header
     display flex
-    height .86rem
+    height $HeaderHeight
     background-color $bgColor
     color #ffffff
-    line-height .86rem
+    line-height $HeaderHeight
     .header-left
       width .64rem
       float left
@@ -58,4 +60,5 @@ export default {
       width 1.24rem
       float right
       text-align center
+      color #ffffff
 </style>
