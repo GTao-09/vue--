@@ -55,7 +55,7 @@ export default {
     }
   },
   mounted () {
-    this.getHomeInfo(this.swiperList)
+    this.getHomeInfo()
   }
 }
 </script>
