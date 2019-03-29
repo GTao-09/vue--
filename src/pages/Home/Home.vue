@@ -17,6 +17,8 @@ import Weekend from './components/Weekend'
 
 import axios from 'axios'
 
+import {mapState} from 'vuex'
+
 export default {
   name: 'Home',
   components: {
@@ -28,16 +30,19 @@ export default {
   },
   data () {
     return {
-      // city: '',
+      lastCiyt: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekendList: []
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         // .then(data => {
         //   // console.log(data)
         // })
@@ -55,7 +60,14 @@ export default {
     }
   },
   mounted () {
+    this.lastCiyt = this.city
     this.getHomeInfo()
+  },
+  activated () { // 在keep-alive激活时调用
+    if (this.lastCiyt !== this.city) { // 切换其他城市时则触发this.getHomeInfo()
+      this.lastCiyt = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
