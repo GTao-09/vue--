@@ -58,7 +58,8 @@ export default {
       .arrowicon
         font-size .2rem
         text-align center
-      width 1.24rem
+      min-width 1.04rem
+      padding 0 0 0 .1rem
       float right
       text-align center
       color #ffffff
