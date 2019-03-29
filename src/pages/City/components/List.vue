@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrap">
-            <div class="button">北京</div>
+            <div class="button">{{$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -13,7 +13,7 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div class="button-wrap" v-for="item in hotCities" :key="item.id">
-            <div class="button">{{item.name}}</div>
+            <div class="button" @click="handleChangeCity(item.name)">{{item.name}}</div>
           </div>
         </div>
       </div>
@@ -23,7 +23,9 @@
       >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="city in citys" :key="city.id">{{city.name}}</div>
+          <div class="item border-bottom" v-for="city in citys" :key="city.id"
+            @click="handleChangeCity(city.name)"
+          >{{city.name}}</div>
         </div>
       </div>
     </div>
@@ -49,6 +51,12 @@ export default {
         const element = this.$refs[this.letter][0] // 获取第this.letter的结构
         this.scroll.scrollToElement(element)
       }
+    }
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.$store.dispatch('changecity', city)
+      this.$router.push({path: '/'})
     }
   }
 }

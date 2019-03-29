@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import store from './store'
+
 import './assets/styles/reset.css' // 重置默认样式
 import './assets/styles/border.css' // 移动端1px像素处理
 import fastClick from 'fastclick' // 解决移动端click事件延迟300ms
@@ -21,5 +23,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })

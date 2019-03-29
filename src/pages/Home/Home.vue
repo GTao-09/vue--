@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeHeader :city="city"></HomeHeader>
+    <HomeHeader></HomeHeader>
     <HomeSwiper :swiperList="swiperList"></HomeSwiper>
     <HomeIcons :iconList="iconList"></HomeIcons>
     <HomeRecommend :recommendList="recommendList"></HomeRecommend>
@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      city: '',
+      // city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -46,7 +46,7 @@ export default {
     getHomeInfoSuccess (res) {
       res = res.data
       if (res.ret && res.data) { // ret为true 且 res.data不为空
-        this.city = res.city
+        // this.city = res.city
         this.swiperList = res.data.swiperList
         this.iconList = res.data.iconList
         this.recommendList = res.data.recommendList

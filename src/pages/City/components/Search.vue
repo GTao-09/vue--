@@ -5,7 +5,9 @@
     </div>
     <div v-show="keyword" class="search-content" ref="search1">
       <ul>
-        <li class="content border-bottom" v-for="item in list" :key="item.id">{{item.name}}</li>
+        <li class="content border-bottom" v-for="item in list" :key="item.id"
+          @click="handleChangecity(item.name)"
+        >{{item.name}}</li>
         <li v-show="!list.length" class="nosearch"> 没有匹配到 </li>
       </ul>
     </div>
@@ -49,6 +51,12 @@ export default {
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.search1)
+  },
+  methods: {
+    handleChangecity (city) {
+      this.$store.dispatch('changecity', city)
+      this.$router.push({path: '/'})
+    }
   }
 }
 </script>
