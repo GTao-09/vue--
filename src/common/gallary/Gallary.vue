@@ -44,6 +44,7 @@ export default {
   display flex
   flex-direction column
   justify-content center
+  z-index 99
   position fixed
   right 0
   left 0
@@ -54,7 +55,7 @@ export default {
     // overflow hidden
     height 0
     width 100%
-    padding-bottom 70%
+    padding-bottom 100%
     .imgstyle
       width 100%
     .swiper-pagination
