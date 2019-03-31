@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive> <!-- 路由缓存 -->
+    <keep-alive exclude="Top"> <!-- 路由缓存 -->
       <router-view/>
     </keep-alive>
   </div>
