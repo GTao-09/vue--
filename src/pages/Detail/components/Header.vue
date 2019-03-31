@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="DetailHeader" @click="handleShowGallary">
-      <img class="detail-img" src="//img1.qunarzz.com/sight/p0/1412/77/cb5a5c0c47e96f6b42ce646cddf4af0d.water.jpg_600x330_17d4b9aa.jpg">
+      <img class="detail-img" :src="bannerImg">
       <div class="detailHeader-info">
-        <div class="detail-title">鸟巢(AAAAAA景区)</div>
+        <div class="detail-title">{{sightName}}</div>
         <div class="detail-imgNumber">
-          <span class="iconfont imgfont">&#xe640;</span>6
+          <span class="iconfont imgfont">&#xe640;</span>{{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <Gallary v-show="showGallary" @closed="handleNoShowGallary" :imgGallary="imgGallary"></Gallary>
+    <Gallary v-show="showGallary" @closed="handleNoShowGallary" :imgGallary="gallaryImgs"></Gallary>
   </div>
 </template>
 
@@ -17,16 +17,17 @@
 import Gallary from '../../../common/gallary/Gallary'
 export default {
   name: 'DetailHeader',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   components: {
     Gallary
   },
   data () {
     return {
-      showGallary: false,
-      imgGallary: [
-        'http://img1.qunarzz.com/sight/p0/1508/2c/e8136f95b4ce7866337c72730167b1a3.water.jpg_r_800x800_d8ac3143.jpg',
-        'http://img1.qunarzz.com/sight/p0/1808/ac/aca2bb073359bb0aa3.water.jpg_r_800x800_224b231f.jpg'
-      ]
+      showGallary: false
     }
   },
   methods: {
