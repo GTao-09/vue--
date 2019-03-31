@@ -9,12 +9,15 @@
         </div>
       </div>
     </div>
-    <Gallary v-show="showGallary" @closed="handleNoShowGallary" :imgGallary="gallaryImgs"></Gallary>
+    <FadeAnimate>
+      <Gallary v-show="showGallary" @closed="handleNoShowGallary" :imgGallary="gallaryImgs"></Gallary>
+    </FadeAnimate>
   </div>
 </template>
 
 <script>
 import Gallary from '../../../common/gallary/Gallary'
+import FadeAnimate from '../../../common/FadeAnimate/FadeAnimate'
 export default {
   name: 'DetailHeader',
   props: {
@@ -23,7 +26,8 @@ export default {
     gallaryImgs: Array
   },
   components: {
-    Gallary
+    Gallary,
+    FadeAnimate
   },
   data () {
     return {
