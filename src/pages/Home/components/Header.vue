@@ -3,10 +3,10 @@
     <div class="header-left">
       <div class="iconfont backicon">&#xe624;</div>
     </div>
-    <div class="header-input">
+    <router-link tag="div" to="/city" class="header-input">
       <span class="iconfont findicon">&#xe632;</span>
       <span>输入城市/景点/游玩主题</span>
-    </div>
+    </router-link>
     <router-link :to="{name: 'CityLink'}">
       <div class="header-right">
         <!-- <span>{{city}}</span> -->
